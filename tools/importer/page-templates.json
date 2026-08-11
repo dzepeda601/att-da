@@ -1,0 +1,215 @@
+{
+  "metadata": {
+    "projectType": "da"
+  },
+  "templates": [
+    {
+      "name": "homepage",
+      "urls": [
+        "https://www.business.att.com/"
+      ],
+      "coverageGaps": [],
+      "description": "AT&T Business homepage: hero with product cards, bundles banner, 'Why choose' feature grid, testimonial, customer-story cards, guarantee feature grid, promotional offer cards, sales-expert CTA, and a link directory.",
+      "blocks": [
+        {
+          "name": "hero",
+          "instances": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.foyer-comp .foyerComp__brochure"
+          ]
+        },
+        {
+          "name": "cards-product",
+          "instances": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.foyer-comp .foyerComp__featured-card-container"
+          ]
+        },
+        {
+          "name": "cards-feature",
+          "instances": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.foyer-comp .foyerComp__standard-card-container"
+          ]
+        },
+        {
+          "name": "columns-banner",
+          "instances": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.simple-story"
+          ]
+        },
+        {
+          "name": "columns-feature",
+          "instances": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.modular-card:nth-of-type(4)",
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.modular-card:nth-of-type(9)"
+          ]
+        },
+        {
+          "name": "columns-testimonial",
+          "instances": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.text-block"
+          ]
+        },
+        {
+          "name": "columns-story",
+          "instances": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.modular-card:nth-of-type(7)"
+          ]
+        },
+        {
+          "name": "columns-offer",
+          "instances": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.modular-card:nth-of-type(11)"
+          ]
+        },
+        {
+          "name": "columns-cta",
+          "instances": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.multi-tile-cards"
+          ]
+        },
+        {
+          "name": "columns-links",
+          "instances": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.link-farm"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "hero_products",
+          "name": "Hero and products",
+          "selector": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.foyer-comp"
+          ],
+          "style": "brand-blue",
+          "blocks": [
+            "hero",
+            "cards-product",
+            "cards-feature"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "bundles_banner",
+          "name": "Bundles banner",
+          "selector": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.simple-story"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-banner"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "why_choose",
+          "name": "Why choose AT&T Business",
+          "selector": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.single-title:nth-of-type(3)",
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.modular-card:nth-of-type(4)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-feature"
+          ],
+          "defaultContent": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.single-title:nth-of-type(3)"
+          ]
+        },
+        {
+          "id": "testimonial",
+          "name": "Testimonial",
+          "selector": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.text-block"
+          ],
+          "style": "light-blue",
+          "blocks": [
+            "columns-testimonial"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "at_work",
+          "name": "AT&T Business at work",
+          "selector": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.single-title:nth-of-type(6)",
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.modular-card:nth-of-type(7)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-story"
+          ],
+          "defaultContent": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.single-title:nth-of-type(6)"
+          ]
+        },
+        {
+          "id": "guarantee_banner",
+          "name": "Guarantee banner",
+          "selector": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.gradient-banner"
+          ],
+          "style": "light-blue",
+          "blocks": [],
+          "defaultContent": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.gradient-banner"
+          ]
+        },
+        {
+          "id": "guarantee_features",
+          "name": "Guarantee features",
+          "selector": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.modular-card:nth-of-type(9)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-feature"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "unlock_offers",
+          "name": "Unlock value offers",
+          "selector": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.single-title:nth-of-type(10)",
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.modular-card:nth-of-type(11)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-offer"
+          ],
+          "defaultContent": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.single-title:nth-of-type(10)"
+          ]
+        },
+        {
+          "id": "sales_cta",
+          "name": "Sales expert CTA",
+          "selector": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.multi-tile-cards"
+          ],
+          "style": "light-grey",
+          "blocks": [
+            "columns-cta"
+          ],
+          "defaultContent": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.multi-tile-cards .container.rel"
+          ]
+        },
+        {
+          "id": "looking_for_more",
+          "name": "Looking for more",
+          "selector": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.link-farm"
+          ],
+          "style": "light-grey",
+          "blocks": [
+            "columns-links"
+          ],
+          "defaultContent": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.link-farm .container.rel"
+          ]
+        }
+      ]
+    }
+  ]
+}

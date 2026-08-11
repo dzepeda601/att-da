@@ -167,12 +167,40 @@ async function inlineColorIcons(scope) {
   });
 }
 
+/**
+ * Apply section-metadata to sections on initial load.
+ *
+ * The boilerplate aem.js decorateSections() wraps the section-metadata block
+ * but does not read it; the only place that consumed it was the Target
+ * mutation observer (which runs for offer-injected content, not the initial
+ * render). This applies the same logic during the normal decorate pass so
+ * authored `Section Metadata` (style, etc.) takes effect on page load.
+ * @param {Element} main
+ */
+function decorateSectionMetadata(main) {
+  main.querySelectorAll('.section .section-metadata').forEach((sectionMeta) => {
+    const section = sectionMeta.closest('.section');
+    if (!section) return;
+    const meta = readBlockConfig(sectionMeta);
+    Object.keys(meta).forEach((key) => {
+      if (key === 'style') {
+        meta.style.split(',').map((s) => toClassName(s.trim())).filter(Boolean)
+          .forEach((s) => section.classList.add(s));
+      } else {
+        section.dataset[toCamelCase(key)] = meta[key];
+      }
+    });
+    sectionMeta.parentElement.remove();
+  });
+}
+
 export function decorateMain(main) {
   decorateButtons(main);
   decorateIcons(main);
   inlineColorIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
+  decorateSectionMetadata(main);
   decorateBlocks(main);
   if (document.contains(main)) initPageSchemas();
 }
