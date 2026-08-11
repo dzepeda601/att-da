@@ -1,0 +1,39 @@
+/* ==========================================================================
+   AT&T Business brand tokens — extracted from https://www.business.att.com/
+   attAleckSans is a proprietary AT&T typeface (no Adobe/Google Fonts source);
+   a clean system sans-serif stack is used as a close visual fallback.
+   ========================================================================== */
+
+:root {
+  /* fonts */
+  --heading-font-family: "attAleckSans-Bold", helvetica, arial, "Helvetica Neue", system-ui, sans-serif;
+  --body-font-family: "attAleckSans-Regular", arial, helvetica, system-ui, sans-serif;
+
+  /* brand palette */
+  --att-blue: #009fdb;          /* AT&T signature cyan-blue (product band, accents) */
+  --att-blue-dark: #0072b2;     /* button / CTA blue */
+  --att-link: #0074b3;
+  --att-link-hover: #0568ae;
+  --att-ink: #1d2329;           /* headings / strong text */
+  --att-text: #333;             /* body text */
+  --att-band-light-blue: #f2fafd;
+  --att-band-light-grey: #f3f4f6;
+
+  /* boilerplate-compatible semantic tokens */
+  --background-color: #fff;
+  --text-color: var(--att-text);
+  --link-color: var(--att-link);
+  --link-hover-color: var(--att-link-hover);
+
+  /* spacing / layout */
+  --section-padding: 48px;
+  --nav-height: 110px;
+
+  /* heading sizes (desktop) */
+  --heading-size-xxl: 60px;
+  --heading-size-xl: 34px;
+  --heading-size-l: 26px;
+  --heading-size-m: 24px;
+  --heading-size-s: 20px;
+  --heading-size-xs: 18px;
+}

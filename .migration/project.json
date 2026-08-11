@@ -1,8 +1,10 @@
 {
+  "type": "da",
   "sites": {
     "att-da": {
       "previewOrg": "dzepeda601",
-      "previewSite": "att-da"
+      "previewSite": "att-da",
+      "libraryUrl": "https://main--sta-boilerplate--aemdemos.aem.page/tools/sidekick/library.json"
     }
   }
 }
