@@ -181,6 +181,57 @@ function setupDropdown(li) {
   });
 }
 
+/**
+ * Build the slim top utility band (desktop two-tier header).
+ * Clones the leading anchor-only tools links (Personal, Business, Contact Sales,
+ * Support) into a top bar: first two on the left, the rest on the right. The
+ * originals stay in .nav-tools (marked .nav-tools-utility) so the mobile drawer
+ * keeps them; CSS hides the originals on desktop and the band on mobile.
+ * @param {Element} tools The .nav-tools section
+ * @param {Element} wrapper The .nav-wrapper element
+ */
+function buildUtilityBar(tools, wrapper) {
+  if (!tools || !wrapper || wrapper.querySelector(':scope > .nav-utility')) return;
+  const toolsUl = tools.querySelector('.default-content-wrapper > ul') || tools.querySelector('ul');
+  if (!toolsUl) return;
+
+  // Utility links = the leading plain links before search/sign-in (which stay
+  // on the main row). Runs before initSearch(), so search is still an <a>;
+  // detect it by href/class, not by <form>.
+  const isReserved = (li) => {
+    if (li.querySelector('form, input, .nav-search-form')) return true;
+    const a = li.querySelector(':scope > a');
+    const href = (a?.getAttribute('href') || '').toLowerCase();
+    return /search|signin|sign-in|login/.test(href);
+  };
+  const items = [...toolsUl.children].filter((el) => el.tagName === 'LI');
+  const utilityItems = [];
+  for (let i = 0; i < items.length; i += 1) {
+    const li = items[i];
+    if (isReserved(li)) break; // stop at the first search/sign-in item
+    if (li.querySelector(':scope > a')) utilityItems.push(li);
+  }
+  if (!utilityItems.length) return;
+
+  const bar = document.createElement('div');
+  bar.className = 'nav-utility';
+  const inner = document.createElement('div');
+  inner.className = 'nav-utility-inner';
+  const left = document.createElement('ul');
+  left.className = 'nav-utility-group nav-utility-left';
+  const right = document.createElement('ul');
+  right.className = 'nav-utility-group nav-utility-right';
+
+  utilityItems.forEach((li, i) => {
+    li.classList.add('nav-tools-utility');
+    (i < 2 ? left : right).append(li.cloneNode(true));
+  });
+
+  inner.append(left, right);
+  bar.append(inner);
+  wrapper.prepend(bar);
+}
+
 function initTheme(tools) {
   const btn = tools.querySelector('.icon-toggle')?.closest('p, button, a, div');
   if (!btn) return;
@@ -591,6 +642,8 @@ export default async function decorate(block) {
   wrapper.className = 'nav-wrapper';
   wrapper.append(nav);
   block.append(wrapper);
+
+  if (tools) buildUtilityBar(tools, wrapper);
 
   toggleMobile(nav, false, body);
   syncMobileNavHeight(nav);

@@ -61,6 +61,55 @@ header .nav-wrapper {
   box-shadow: none;
 }
 
+/* top utility band – desktop only (hidden on mobile; links live in the drawer) */
+header .nav-wrapper > .nav-utility {
+  display: none;
+}
+
+header .nav-wrapper > .nav-utility .nav-utility-inner {
+  max-width: var(--nav-desktop-max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: var(--utility-height, 36px);
+}
+
+header .nav-wrapper > .nav-utility .nav-utility-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-l);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+header .nav-wrapper > .nav-utility .nav-utility-group li {
+  margin: 0;
+  padding: 0;
+}
+
+header .nav-wrapper > .nav-utility a:any-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  color: var(--att-ink, #1d2329);
+  font-size: var(--body-font-size-xs);
+  font-weight: 500;
+  letter-spacing: normal;
+  text-transform: none;
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+
+header .nav-wrapper > .nav-utility a:any-link:hover,
+header .nav-wrapper > .nav-utility a:any-link:focus-visible {
+  color: var(--att-link, #0074b3);
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+
 /* mobile: base layout */
 header nav {
   box-sizing: border-box;
@@ -827,6 +876,38 @@ header nav .nav-tools .nav-language-menu a:focus-visible {
     display: none;
   }
 
+  /* two-tier header: reserve flow space for utility band + main nav row */
+  header .nav-wrapper > .nav-utility {
+    display: block;
+    background-color: var(--att-band-light-grey, #f3f4f6);
+    border-bottom: 1px solid #e3e6e9;
+  }
+
+  /* the duplicated utility links stay in the drawer source; hide on desktop */
+  header nav .nav-tools .nav-tools-utility {
+    display: none;
+  }
+
+  /* tools row (search + sign in) as a centered flex row, no default ul margin */
+  header nav .nav-tools .default-content-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  header nav .nav-tools .default-content-wrapper > ul {
+    display: flex;
+    align-items: center;
+    gap: var(--nav-gap);
+    margin: 0;
+    padding: 0;
+  }
+
+  header nav .nav-tools .default-content-wrapper > ul > li {
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+  }
+
   header nav {
     display: flex;
     justify-content: space-between;
@@ -839,7 +920,11 @@ header nav .nav-tools .nav-language-menu a:focus-visible {
   }
 
   header {
+    /* two-tier header: reserve flow space for utility band + main nav row */
+    --utility-height: 36px;
     --nav-padding: var(--space-xl);
+
+    height: calc(var(--nav-height) + var(--utility-height));
   }
 
   /* brand: left, no shrink */
