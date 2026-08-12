@@ -405,7 +405,7 @@ header nav .nav-sections .default-content-wrapper > ul > li > ul > li.nav-mega-h
   padding: var(--space-l) 0 var(--space-s);
   font-size: var(--nav-heading-size);
   font-weight: var(--nav-heading-weight);
-  color: var(--dark-color);
+  color: var(--att-ink, #1d2329);
   border-bottom: 0;
 }
 
@@ -485,7 +485,7 @@ header nav .nav-sections .default-content-wrapper > ul > li > ul > li:not(.nav-m
     padding: var(--space-m) 0 var(--space-s);
     font-size: var(--nav-heading-size);
     font-weight: var(--nav-heading-weight);
-    color: var(--dark-color);
+    color: var(--att-ink, #1d2329);
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul > .nav-mega-inner > li.nav-mega-heading:first-child {
@@ -1211,7 +1211,7 @@ header nav .nav-tools .nav-language-menu a:focus-visible {
     display: block;
     margin-top: 0;
     padding: 0 0 var(--nav-gap);
-    color: var(--dark-color);
+    color: var(--att-ink, #1d2329);
     font-size: var(--nav-heading-size);
     font-weight: var(--nav-heading-weight);
     line-height: 1.2;

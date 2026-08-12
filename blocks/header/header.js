@@ -70,12 +70,16 @@ function decorateMega(li) {
   }
   if (group) sub.classList.add('nav-mega-has-groups');
 
-  /* wrap content in centered inner container (full-width panel, centered grid) */
-  const inner = document.createElement('div');
+  /* Wrap content in a centered inner container (full-width panel, centered grid).
+     inner is a <ul> so it validly contains the <li> items; the outer panel <ul>
+     (sub) then holds only this inner list, so mark it role="presentation" to keep
+     list semantics valid (a <ul> may not directly contain a non-<li> child). */
+  const inner = document.createElement('ul');
   inner.className = 'nav-mega-inner';
   inner.style.setProperty('--mega-columns', String(totalCols));
   while (sub.firstChild) inner.appendChild(sub.firstChild);
   sub.appendChild(inner);
+  sub.setAttribute('role', 'presentation');
 
   // Position dropdown: full viewport width, arrow under trigger
   const sync = () => {
