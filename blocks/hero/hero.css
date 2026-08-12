@@ -57,3 +57,148 @@
     margin-top: 28px; /* exact source gap below the headline */
   }
 }
+
+/* ==========================================================================
+   AT&T "split" hero — used on /bundles (white background, not the blue band).
+   Two rows from the parser: [ image ] and [ eyebrow + heading + tagline +
+   inclusion list + CTAs ]. On desktop they sit side by side (text left, image
+   right); they stack on mobile. Scoped to sections WITHOUT .brand-blue so the
+   homepage's blue-band hero is unaffected.
+   ========================================================================== */
+main > .section:not(.brand-blue) .hero {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-l);
+  align-items: flex-start;
+  max-width: var(--nav-desktop-max-width, 1264px);
+  margin-inline: auto;
+  padding-block: var(--space-2xl);
+  text-align: left;
+}
+
+/* the two parser rows (image row + content row) */
+main > .section:not(.brand-blue) .hero > div {
+  width: 100%;
+}
+
+/* image */
+main > .section:not(.brand-blue) .hero picture,
+main > .section:not(.brand-blue) .hero img {
+  display: block;
+  width: 100%;
+  border-radius: 16px;
+}
+
+main > .section:not(.brand-blue) .hero img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+/* eyebrow */
+main > .section:not(.brand-blue) .hero em {
+  display: inline-block;
+  margin-bottom: var(--space-xs);
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--att-link, #0074b3);
+}
+
+/* heading — dark ink on white (override the global white hero h1 sizing only) */
+main > .section:not(.brand-blue) .hero :is(h1, h2) {
+  max-width: none;
+  margin: 0 0 var(--space-s);
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--att-ink, #1d2329);
+}
+
+/* tagline + supporting copy — dark, not the inherited near-white */
+main > .section:not(.brand-blue) .hero p {
+  max-width: 34rem;
+  margin: 0 0 var(--space-m);
+  font-size: var(--body-font-size-l);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--att-text, #333);
+}
+
+/* checkmarked inclusion list */
+main > .section:not(.brand-blue) .hero ul {
+  margin: 0 0 var(--space-l);
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+main > .section:not(.brand-blue) .hero li {
+  position: relative;
+  padding-left: 30px;
+  font-size: var(--body-font-size-m);
+  line-height: 1.4;
+  color: var(--att-ink, #1d2329);
+}
+
+main > .section:not(.brand-blue) .hero li::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 3px;
+  width: 6px;
+  height: 11px;
+  border: solid var(--att-blue-dark, #0072b2);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* CTAs row — primary blue pill + secondary outline */
+main > .section:not(.brand-blue) .hero .button-container {
+  display: inline-block;
+  margin: 0 var(--space-s) 0 0;
+}
+
+main > .section:not(.brand-blue) .hero .button-container a:any-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 32px;
+  border: 2px solid var(--att-blue-dark, #0072b2);
+  border-radius: 28px;
+  background-color: var(--att-blue-dark, #0072b2);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+/* second CTA renders as a secondary outline button */
+main > .section:not(.brand-blue) .hero .button-container:nth-of-type(2) a:any-link {
+  background-color: transparent;
+  color: var(--att-blue-dark, #0072b2);
+}
+
+main > .section:not(.brand-blue) .hero .button-container a:any-link:hover,
+main > .section:not(.brand-blue) .hero .button-container a:any-link:focus-visible {
+  border-color: var(--att-link-hover, #0568ae);
+  background-color: var(--att-link-hover, #0568ae);
+  color: #fff;
+}
+
+@media (width >= 900px) {
+  main > .section:not(.brand-blue) .hero {
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: clamp(2.5rem, 6vw, 5rem);
+  }
+
+  main > .section:not(.brand-blue) .hero > div {
+    flex: 1 1 50%;
+  }
+}
