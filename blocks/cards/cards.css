@@ -546,3 +546,159 @@ main .cards.product .cards-card-body a.button:any-link:focus-visible {
     padding: 32px 20px;
   }
 }
+
+/* ==========================================================================
+   AT&T "bundle" variant — /bundles "Choose the bundle…" tiles.
+   Two large offer tiles side by side: image on top, eyebrow, heading, price
+   intro, a checkmarked inclusion list, and an AT&T-blue CTA pinned to the
+   bottom so both tiles align. Source: .multi-tile-cards .tile-card.
+   ========================================================================== */
+
+.cards.bundle > ul {
+  grid-template-columns: 1fr;
+  gap: 24px;
+  max-width: 1000px;
+  margin-inline: auto;
+}
+
+.cards.bundle > ul > li {
+  border: 1px solid #e3e6e9;
+  border-radius: 16px;
+  background: var(--color-light);
+  box-shadow: 0 10px 30px -12px rgb(0 0 0 / 12%);
+}
+
+/* neutralize the default hover lift/zoom */
+.cards.bundle > ul > li:hover {
+  transform: none;
+  border-color: #d3d3d3;
+  box-shadow: 0 16px 40px -14px rgb(0 0 0 / 20%);
+}
+
+.cards.bundle > ul > li:hover .cards-card-image img {
+  transform: none;
+}
+
+.cards.bundle .cards-card-link {
+  padding: 0 0 32px;
+}
+
+/* lifestyle photo across the top of the tile */
+.cards.bundle .cards-card-image {
+  margin: 0 0 24px;
+  line-height: 0;
+}
+
+.cards.bundle .cards-card-image img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 16px 16px 0 0;
+}
+
+.cards.bundle .cards-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 0 28px;
+}
+
+/* eyebrow (Fiber + phone bundle / New customers) */
+.cards.bundle .cards-card-body p:first-child em,
+.cards.bundle .cards-card-body em {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--att-link);
+}
+
+.cards.bundle .cards-card-body h3 {
+  margin: 0 0 12px;
+  font-size: clamp(22px, 2.4vw, 26px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--att-ink);
+}
+
+/* price / "You'll get:" intro line */
+.cards.bundle .cards-card-body > p {
+  margin: 0 0 16px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--att-ink);
+}
+
+/* checkmarked inclusion list */
+.cards.bundle .cards-card-body ul {
+  margin: 0 0 20px;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cards.bundle .cards-card-body li {
+  position: relative;
+  padding-left: 30px;
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--att-text);
+}
+
+/* blue check glyph built with CSS (no icon asset) */
+.cards.bundle .cards-card-body li::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 3px;
+  width: 6px;
+  height: 11px;
+  border: solid var(--att-blue-dark);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* CTA — AT&T-blue pill pinned to the bottom for equal-height tiles */
+.cards.bundle .cards-card-body p.button-container {
+  margin: 24px 0 0;
+  margin-top: auto;
+}
+
+/* CTA link — the source anchor may carry .button (EDS auto-block) or the
+   source's own .primary class, so match both plus the button-container child. */
+main .cards.bundle .cards-card-body p.button-container a:any-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 12px 32px;
+  border: 2px solid var(--att-blue-dark);
+  border-radius: 28px;
+  background-color: var(--att-blue-dark);
+  background-image: none;
+  color: var(--color-light);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+main .cards.bundle .cards-card-body p.button-container a:any-link:hover,
+main .cards.bundle .cards-card-body p.button-container a:any-link:focus-visible {
+  border-color: var(--att-link-hover);
+  background-color: var(--att-link-hover);
+  color: var(--color-light);
+}
+
+@media (width >= 900px) {
+  .cards.bundle > ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}

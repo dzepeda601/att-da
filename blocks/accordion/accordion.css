@@ -1,3 +1,7 @@
+/* stylelint-disable no-descending-specificity -- open-state rules intentionally
+   follow the base label/body rules; they target the same elements in a
+   mutually-exclusive [open] state and never compete out of order. */
+
 /* ==========================================================================
    Accordion block — inline authored expandable content.
    Used on /bundles for the "Frequently asked questions" list and the single
@@ -12,7 +16,22 @@ main .accordion {
 }
 
 main .accordion .accordion-item {
-  border-bottom: 1px solid var(--color-gray-300, #b5b5b5);
+  border-bottom: 1px solid #e3e6e9;
+}
+
+/* Bound the list with a rule above the first item too. */
+main .accordion .accordion-item:first-child {
+  border-top: 1px solid #e3e6e9;
+}
+
+/* Subtle tint on the open item so the active question stands out. */
+main .accordion .accordion-item[open] {
+  background-color: var(--att-band-light-blue, #f2fafd);
+}
+
+main .accordion .accordion-item[open] > .accordion-item-label,
+main .accordion .accordion-item[open] > .accordion-item-body {
+  padding-inline: var(--space-m);
 }
 
 /* Summary row: label on the left, chevron on the right. */
