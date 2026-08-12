@@ -210,6 +210,156 @@
           ]
         }
       ]
+    },
+    {
+      "name": "bundles",
+      "urls": [
+        "https://www.business.att.com/bundles.html"
+      ],
+      "coverageGaps": [],
+      "description": "AT&T Business bundles page: fiber-offer hero, reward-card offer, value-prop feature grid, bundle hero, \"Choose the bundle\" tiles, risk-free feature grid, FAQ + SEO accordions, and a sales-expert form section.",
+      "blocks": [
+        {
+          "name": "hero",
+          "instances": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.hero"
+          ]
+        },
+        {
+          "name": "columns-offer",
+          "instances": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.offer"
+          ]
+        },
+        {
+          "name": "cards-feature",
+          "instances": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.generic-list-value-prop"
+          ]
+        },
+        {
+          "name": "cards-bundle",
+          "instances": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.multi-tile-cards"
+          ]
+        },
+        {
+          "name": "accordion",
+          "instances": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.accordion-panel"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "hero_fiber",
+          "name": "Fiber offer hero",
+          "selector": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.hero:nth-of-type(1)"
+          ],
+          "style": null,
+          "blocks": [
+            "hero"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "reward_offer",
+          "name": "Reward card offer",
+          "selector": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.offer"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-offer"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "edge_value_props",
+          "name": "Bundle value props",
+          "selector": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.generic-list-value-prop:nth-of-type(3)"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-feature"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "bundle_hero",
+          "name": "Bundle hero",
+          "selector": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.hero:nth-of-type(4)"
+          ],
+          "style": null,
+          "blocks": [
+            "hero"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "choose_bundle",
+          "name": "Choose the bundle",
+          "selector": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.multi-tile-cards"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-bundle"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "risk_free",
+          "name": "Risk-free value props",
+          "selector": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.generic-list-value-prop:nth-of-type(6)"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-feature"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "faq",
+          "name": "FAQ",
+          "selector": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.accordion-panel:nth-of-type(7)"
+          ],
+          "style": null,
+          "blocks": [
+            "accordion"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "seo_bundles",
+          "name": "SEO bundles",
+          "selector": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.accordion-panel:nth-of-type(8)"
+          ],
+          "style": null,
+          "blocks": [
+            "accordion"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "sales_form",
+          "name": "Sales expert",
+          "selector": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.rai-form"
+          ],
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            "#baem-container .segmentationSectionIncluded .aem-Grid > div.rai-form"
+          ]
+        }
+      ]
     }
   ]
 }

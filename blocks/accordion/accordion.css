@@ -1,0 +1,97 @@
+/* ==========================================================================
+   Accordion block — inline authored expandable content.
+   Used on /bundles for the "Frequently asked questions" list and the single
+   "AT&T Business Bundles" SEO disclosure panel. Rendered as <details>/<summary>.
+   Design tokens (--space-*, --att-*, --color-*) come from styles/styles.css;
+   exact AT&T spacing/colors are refined in the downstream visual-critique step.
+   ========================================================================== */
+
+main .accordion {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+main .accordion .accordion-item {
+  border-bottom: 1px solid var(--color-gray-300, #b5b5b5);
+}
+
+/* Summary row: label on the left, chevron on the right. */
+main .accordion .accordion-item-label {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-m);
+  padding: var(--space-m) 0;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--att-ink, var(--color-text));
+}
+
+/* Hide the native disclosure triangle across browsers. */
+main .accordion .accordion-item-label::-webkit-details-marker {
+  display: none;
+}
+
+main .accordion .accordion-item-title {
+  flex: 1;
+  text-align: left;
+}
+
+/* Chevron indicator built from a CSS glyph so no icon asset is required. */
+main .accordion .accordion-item-label::after {
+  content: '';
+  flex-shrink: 0;
+  width: 12px;
+  height: 12px;
+  margin-top: 6px;
+  border-right: 2px solid var(--att-blue, var(--color-brand));
+  border-bottom: 2px solid var(--att-blue, var(--color-brand));
+  transform: rotate(45deg);
+  transition: transform 0.3s var(--ease-out-expo, cubic-bezier(0.16, 1, 0.3, 1));
+}
+
+main .accordion .accordion-item[open] > .accordion-item-label::after {
+  transform: rotate(225deg);
+}
+
+main .accordion .accordion-item-label:hover {
+  color: var(--att-link-hover, var(--color-link-hover));
+}
+
+/* Answer / details body. */
+main .accordion .accordion-item-body {
+  padding: 0 0 var(--space-m);
+}
+
+main .accordion .accordion-item-body > :first-child {
+  margin-top: 0;
+}
+
+main .accordion .accordion-item-body p {
+  margin: 0 0 var(--space-m);
+  line-height: 1.65;
+  color: var(--att-text, var(--color-text));
+}
+
+main .accordion .accordion-item-body :is(h2, h3, h4) {
+  margin: var(--space-l) 0 var(--space-s);
+  color: var(--att-ink, var(--color-text));
+}
+
+main .accordion .accordion-item-body a:any-link {
+  color: var(--att-link, var(--color-link));
+}
+
+main .accordion .accordion-item-body a:hover {
+  color: var(--att-link-hover, var(--color-link-hover));
+}
+
+@media (width >= 600px) {
+  main .accordion .accordion-item-label {
+    font-size: var(--body-font-size-l);
+  }
+}
