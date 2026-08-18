@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "https://www.business.att.com/bundles.html",
+  "path": "bundles",
+  "timestamp": "2026-08-12T21:18:19.883Z",
+  "title": "AT&T Business Internet & Phone Bundles for Business",
+  "template": "bundles",
+  "blocks": [
+    "hero",
+    "hero",
+    "columns-offer",
+    "cards-feature",
+    "cards-feature",
+    "cards-bundle",
+    "accordion",
+    "accordion"
+  ]
+}
